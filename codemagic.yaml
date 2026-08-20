@@ -1,0 +1,15 @@
+workflows:
+  android-debug:
+    name: PolymarketClient v0.8.5 Live Trading
+    max_build_duration: 60
+    environment:
+      java: 17
+    scripts:
+      - name: Check Java and Gradle
+        script: |
+          java -version
+          gradle --version
+      - name: Build debug APK
+        script: gradle clean assembleDebug --stacktrace
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
