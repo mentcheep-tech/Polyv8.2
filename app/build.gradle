@@ -1,0 +1,35 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.polymarket.client'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.polymarket.client'
+        minSdk 26
+        targetSdk 35
+        versionCode 85
+        versionName '0.8.5'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                'META-INF/DISCLAIMER',
+                'META-INF/LICENSE',
+                'META-INF/NOTICE'
+            ]
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    // 4.12.0 is the Web3j release documented for Android/JDK 17.
+    implementation 'org.web3j:crypto:4.12.0'
+}
